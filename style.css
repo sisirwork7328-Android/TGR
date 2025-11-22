@@ -35,8 +35,8 @@ body {
         border-radius: 20px 20px 20px 20px;
         }
         .adj{
-            width: 00px;
-            height: 00px;
+            width: 300px;
+            height: 300px;
             overflow-x: scroll;
             overflow-y: scroll;
             margin-left:30px ;
@@ -125,3 +125,4 @@ input {
         button:active {
             content: "wait..";
         }
+
