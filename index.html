@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Receipt Generator</title>
+    <link  href="style.css" rel="stylesheet" />
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <div class="form-box">
+        <h2>Fill Receipt Details</h2>
+        <label>Name</label><br>
+        <input id="name" /><br><br>
+        <label>Amount</label><br>
+        <input id="amount" /><br><br>
+       
+        <label>Address</label><br>
+        <input type="text" id="address"></input><br> <br>
+        <label>Payment Receiver Name</label><br>
+        <input type="text" id="receiver">
+        <br><br />
+        <label>Date</label><br>
+       <input type="date" id="date" /><br><br>
+        <button onclick="generate()">Generate</button>
+        <button onclick="downloadReceipt()">Download Receipt</button>
+    </div>
+    <br />
+    <br>
+<div class="adj">
+    <div class="receipt-box" id="receiptPreview">
+        <div id="nameField" class="field"></div>
+        <div id="amountField" class="field"></div>
+        <div id="dateField" class="field"></div>
+        <div id="addressField" class="field"></div>
+        <div id="receiverField" class="field" ></div>
+    </div>
+</div><br />
+<hr />
+    <footer>
+    <p>👨‍💻 Developed by <strong>NSA SAHOO</strong></p>
+    <p>version <strong>1.1</strong></p>
+    <p>
+        🔗 
+        <a href="#">Email</a> | 
+        <a href="#">GitHub</a> | 
+        <a href="#">LinkedIn</a>
+    </p>
+    </footer>
+    <script>
+        function generate() {
+            document.getElementById("nameField").innerText = document.getElementById("name").value;
+            document.getElementById("amountField").innerText =document.getElementById("amount").value;
+            document.getElementById("amountField").style.color="red";
+            document.getElementById("amountField").style.fontSize="70px";
+            document.getElementById("dateField").innerText = document.getElementById("date").value;
+            document.getElementById("addressField").innerText = document.getElementById("address").value;
+            document.getElementById("receiverField").innerText = document.getElementById("receiver").value;
+            document.getElementById("receiverField").style.color="red";
+            alert ("generate successfull ");
+        }
+
+        function downloadReceipt() {
+            html2canvas(document.getElementById("receiptPreview")).then(canvas => {
+                let link = document.createElement("a");
+                link.download = "Receipt.png";
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    </script>
+
+    <!-- CDN for converting receipt box to image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>
